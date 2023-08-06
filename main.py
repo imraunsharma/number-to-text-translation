@@ -35,7 +35,7 @@ def NumberToText(num):
     if num == 10:
         return "Ten "
     elif num < 20:
-        return teens[(num % 10) - 1] + " "
+        return teens[num - 11] + " "
     elif num < 100:
         return (
             tens[num // 10 - 1]
