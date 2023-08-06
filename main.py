@@ -29,7 +29,7 @@ over_thousand = {
 }
 
 
-def NumToText(num):
+def NumberToText(num):
     if num < 10:
         return ones[num] + " "
     if num == 10:
@@ -40,30 +40,30 @@ def NumToText(num):
         return (
             tens[num // 10 - 1]
             + " "
-            + ("" if num // 10 == 0 else (NumToText(num % 10)))
+            + ("" if num // 10 == 0 else (NumberToText(num % 10)))
         )
     elif num < 1000:
         return (
             ones[num // 100]
             + " Hundred "
-            + ("" if num // 100 == 0 else ("and " + NumToText(num % 100)))
+            + ("" if num // 100 == 0 else ("and " + NumberToText(num % 100)))
         )
 
     for limit in over_thousand.values():
         return (
-            NumToText(num // (limit // 1000))
+            NumberToText(num // (limit // 1000))
             + list(over_thousand.keys())[list(over_thousand.values()).index(limit)]
             + (
                 ""
                 if num // (limit // 1000) == 0
-                else (NumToText(num % (limit // 1000)))
+                else (NumberToText(num % (limit // 1000)))
             )
         )
 
 
 def main():
     num = int(input("Enter a number: "))
-    translation = NumToText(num)
+    translation = NumberToText(num)
     print(translation)
 
 
