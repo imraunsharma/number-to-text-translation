@@ -21,7 +21,7 @@ tens = [
     "Eighty",
     "Ninety",
 ]
-overthousand = {
+over_thousand = {
     "Thousand ": 1000000,
     "Million ": 1000000000,
     "Billion ": 1000000000000,
@@ -49,10 +49,10 @@ def NumToText(num):
             + ("" if num // 100 == 0 else ("and " + NumToText(num % 100)))
         )
 
-    for limit in overthousand.values():
+    for limit in over_thousand.values():
         return (
             NumToText(num // (limit // 1000))
-            + list(overthousand.keys())[list(overthousand.values()).index(limit)]
+            + list(over_thousand.keys())[list(over_thousand.values()).index(limit)]
             + (
                 ""
                 if num // (limit // 1000) == 0
