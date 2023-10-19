@@ -67,5 +67,5 @@ def main():
     print(translation)
 
 
-if __name__ == "__main__":
-    main()
+
+main()
