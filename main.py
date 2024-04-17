@@ -32,7 +32,7 @@ over_thousand = {
 def NumberToText(num):
     if num < 10:
         return ones[num] + " "
-    if num == 10:
+    elif num == 10:
         return "Ten "
     elif num < 20:
         return teens[num - 11] + " "
