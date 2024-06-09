@@ -29,7 +29,8 @@ over_thousand = {
 }
 
 
-def NumberToText(num):
+def number_to_text(num):
+    '''Converts an integer number into its literal equivalent.'''
     if num < 10:
         return ones[num] + " "
     elif num == 10:
@@ -40,31 +41,32 @@ def NumberToText(num):
         return (
             tens[num // 10 - 1]
             + " "
-            + ("" if num % 10 == 0 else (NumberToText(num % 10)))
+            + ("" if num % 10 == 0 else (number_to_text(num % 10)))
         )
     elif num < 1000:
         return (
             ones[num // 100]
             + " Hundred "
-            + ("" if num % 100 == 0 else ("and " + NumberToText(num % 100)))
+            + ("" if num % 100 == 0 else ("and " + number_to_text(num % 100)))
         )
 
     for limit in over_thousand.values():
         if limit > num:
             return (
-                NumberToText(num // (limit // 1000))
+                number_to_text(num // (limit // 1000))
                 + list(over_thousand.keys())[list(over_thousand.values()).index(limit)]
                 + (
                     ""
                     if num % (limit // 1000) == 0
-                    else (NumberToText(num % (limit // 1000)))
+                    else (number_to_text(num % (limit // 1000)))
                 )
             )
 
 
 def main():
+    '''Main module'''
     num = int(input("Enter a number: "))
-    translation = NumberToText(num)
+    translation = number_to_text(num)
     print(translation)
 
 
